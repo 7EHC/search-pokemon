@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMON_BY_NAME } from "../graphql/queries";
 import { useRouter } from "next/navigation";
 import NotFound from "./NotFound";
+import Image from "next/image";
 
 type Props = {
   name: string;
