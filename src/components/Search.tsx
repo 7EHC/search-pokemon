@@ -20,7 +20,7 @@ const Search = ({ searchValue, setSearchValue}: SearchProps) => {
 
   return (
     <div className="flex justify-center md:justify-end my-5 p-2">
-      <div className="relative">
+      <div className="relative lg:w-1/4">
       <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
         <input
           type="text"
