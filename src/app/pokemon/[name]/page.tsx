@@ -4,7 +4,7 @@ type Props = {
   params: { name: string };
 }
 
-async function page({ params }: Props) {
+function Page({ params }: Props) {
   const { name } = params;
     return (
       <div>
@@ -13,4 +13,4 @@ async function page({ params }: Props) {
   )
 }
 
-export default page
+export default Page
