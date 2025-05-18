@@ -4,7 +4,7 @@ type Props = {
   params: { name: string };
 }
 
-function Page({ params }: Props) {
+const Details = ({ params }: Props) => {
   const { name } = params;
     return (
       <div>
@@ -13,4 +13,4 @@ function Page({ params }: Props) {
   )
 }
 
-export default Page
+export default Details;

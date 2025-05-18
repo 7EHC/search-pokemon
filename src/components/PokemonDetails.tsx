@@ -10,7 +10,7 @@ type Props = {
   name: string;
 };
 
-function PokemonDetails({ name }: Props) {
+const PokemonDetails = ({ name }: Props) => {
   const router = useRouter();
   const typeColors: Record<string, string> = {
     Grass: "bg-green-200 text-green-900",

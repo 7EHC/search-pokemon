@@ -8,7 +8,7 @@ type SearchProps = {
   setSearchValue: (value: string) => void;
 }
 
-function Search({ searchValue, setSearchValue}: SearchProps) {
+const Search = ({ searchValue, setSearchValue}: SearchProps) => {
   const searchParams = useSearchParams();
   const nameParam = searchParams.get("name");
 

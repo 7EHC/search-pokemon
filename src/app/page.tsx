@@ -3,7 +3,7 @@ import AllPokemon from "@/components/AllPokemon";
 import Search from "@/components/Search";
 import { useState } from "react";
 
-export default function Home() {
+const Home = () => {
   const [searchValue, setSearchValue] = useState("")
 
   return (
@@ -20,3 +20,5 @@ export default function Home() {
       </main>
   );
 }
+
+export default Home;
