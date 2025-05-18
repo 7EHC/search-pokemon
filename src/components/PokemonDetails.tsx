@@ -78,8 +78,8 @@ function PokemonDetails({ name }: Props) {
                 className="mb-10 mt-5"
               />
             </div>
-            <div className="flex flex-row gap-4">
-              <p className="text-xl font-normal p-2 bg-yellow-200 rounded-full text-red-900 self-start">
+            <div className="flex flex-row gap-4 w-3/4 justify-center border-b-1 border-gray-300 pb-2 mb-2">
+              <p className="text-xl text-red-900">
                 Evolutions
               </p>
             </div>
@@ -91,7 +91,7 @@ function PokemonDetails({ name }: Props) {
                       <div
                         key={evo.id}
                         onClick={() => handleClick(evo.name)}
-                        className="rounded-xl border-15 border-yellow-100 bg-white p-4 text-center shadow-lg cursor-pointer hover:shadow-lg hover:scale-102 transition-all duration-300 flex flex-col items-center"
+                        className="rounded-xl bg-white p-4 text-center shadow-lg cursor-pointer hover:shadow-xl hover:scale-102 transition-all duration-300 flex flex-col items-center"
                       >
                         <img
                           src={evo.image}
