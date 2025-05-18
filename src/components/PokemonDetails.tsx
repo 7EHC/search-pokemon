@@ -86,7 +86,7 @@ const PokemonDetails = ({ name }: Props) => {
             <div className="flex-1 flex-col rounded-xl p-5">
               {data.pokemon.evolutions?.length > 0 ? (
                 <>
-                  <div className="flex gap-4 flex-wrap justify-center">
+                  <div className="flex gap-4 flex-row md:flex-wrap justify-center">
                     {data.pokemon.evolutions.map((evo: Pokemon) => (
                       <div
                         key={evo.id}
