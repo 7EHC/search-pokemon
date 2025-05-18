@@ -5,6 +5,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 const NotFound = () => {
   const router = useRouter();
+  const message = "We couldn’t find the Pokemon you’re searching for.";
 
   const handleClick = () => {
     router.push("/")
@@ -16,7 +17,7 @@ const NotFound = () => {
         <p className="text-3xl text-gray-400">Not Found</p>
       </div>
       <p className="text-gray-400">
-        We couldn’t find the Pokemon you're searching for.
+        { message}
       </p>
       <button onClick={() => handleClick()} className="mt-4 cursor-pointer bg-white shadow-md p-2 rounded-xl hover:shadow-lg hover:bg-gray-50 transition-all duration-300 text-black">
         Try another name

@@ -3,6 +3,8 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphql/queries";
 import { useRouter } from "next/navigation";
+import { Pokemon } from "../types/pokemon";
+import Image from "next/image";
 
 const AllPokemon = () => {
   const router = useRouter();
@@ -31,7 +33,7 @@ const AllPokemon = () => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-      {data.pokemons.map((pokemon: any) => (
+      {data.pokemons.map((pokemon: Pokemon) => (
         <div
           key={pokemon.id}
           onClick={() => handleClick(pokemon.name)}
@@ -41,6 +43,8 @@ const AllPokemon = () => {
             src={pokemon.image}
             alt={pokemon.name}
             className="w-38 h-38 object-contain mx-auto"
+            // width={38}
+            // height={38}
           />
           <div className="mt-3">
           <p className="text-center text-sm">
