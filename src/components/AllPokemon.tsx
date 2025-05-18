@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphql/queries";
 import { useRouter } from "next/navigation";
 import { Pokemon } from "../types/pokemon";
-import Image from "next/image";
+// import Image from "next/image";
 
 const AllPokemon = () => {
   const router = useRouter();
