@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMON_BY_NAME } from "../graphql/queries";
 import { useRouter } from "next/navigation";
 import NotFound from "./NotFound";
+import { Pokemon } from "@/types/pokemon";
 // import Image from "next/image";
 
 type Props = {
@@ -88,7 +89,7 @@ function PokemonDetails({ name }: Props) {
               {data.pokemon.evolutions?.length > 0 ? (
                 <>
                   <div className="flex gap-4 flex-wrap justify-center">
-                    {data.pokemon.evolutions.map((evo: any) => (
+                    {data.pokemon.evolutions.map((evo: Pokemon) => (
                       <div
                         key={evo.id}
                         onClick={() => handleClick(evo.name)}
