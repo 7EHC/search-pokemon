@@ -1,10 +1,10 @@
 import PokemonDetails from '@/components/PokemonDetails'
 
-type props = {
+type Props = {
   params: { name: string };
 }
 
-function Page({ params }: props) {
+const Details = ({ params }: Props) => {
   const { name } = params;
     return (
       <div>
@@ -13,4 +13,4 @@ function Page({ params }: props) {
   )
 }
 
-export default Page
+export default Details;
