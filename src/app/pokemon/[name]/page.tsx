@@ -1,10 +1,6 @@
-import PokemonDetails from '@/components/PokemonDetails';
+import PokemonDetails from "@/components/PokemonDetails";
 
-export default function Page({
-  params,
-}: {
-  params: { name: string };
-}) {
+export default function Page({ params }: { params: { name: string } }) {
   const { name } = params;
 
   return (
