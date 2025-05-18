@@ -5,7 +5,7 @@ type Props = {
 }
 
 async function page({ params }: Props) {
-  const { name } = await params;
+  const { name } = params;
     return (
       <div>
         <PokemonDetails name={ name } />
