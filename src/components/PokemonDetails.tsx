@@ -2,9 +2,10 @@
 import { useQuery } from "@apollo/client";
 import { GET_POKEMON_BY_NAME } from "../graphql/queries";
 import { useRouter } from "next/navigation";
+import NotFound from "./NotFound";
 
 type Props = {
-  name: string | null;
+  name: string;
 };
 
 function PokemonDetails({ name }: Props) {
@@ -29,34 +30,47 @@ function PokemonDetails({ name }: Props) {
     skip: !name,
   });
 
-  if (loading) return <p className="flex h-screen justify-center items-center">Loading...</p>;
+  if (loading)
+    return (
+      <p className="flex h-screen justify-center items-center">Loading...</p>
+    );
   if (error) return <p>Error: {error.message}</p>;
-  if (!data?.pokemon) return <p>Pokemon not found</p>;
+  if (!data?.pokemon) return <NotFound />;
 
   return (
     <div>
       <div className="flex flex-col items-center">
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 bg-white shadow-md w-full max-w-7xl p-5">
           <div className="flex flex-col items-center rounded-xl p-5">
-            <div className="flex flex-col items-center">
-              <h1 className="font-light text-3xl">
-                {data.pokemon.name}{" "}
-                <span className="text-[#616161]">#{data.pokemon.number}</span>
-                <ul className="flex gap-2 justify-center items-center flex-wrap">
-                {data.pokemon.types.map((type: string, index: number) => (
-                  <li
-                    key={index}
-                    className={`rounded-xl text-sm font-normal p-2 mt-2 ${
-                      typeColors[type] || "bg-gray-200 text-gray-800"
-                    }`}
-                  >
-                    {type}
-                  </li>
-                ))}
-              </ul>
-              </h1>{" "}
-              <br />
+            <div className="relative w-full mb-4">
+              <img
+                src="/icons8-home-48.png"
+                alt="homeIcon"
+                onClick={() => router.push("/")}
+                className="absolute left-0 w-8 h-8 cursor-pointer hover:scale-110 transition-all duration-300"
+              />
+
+              <div className="flex flex-col items-center">
+                <h1 className="text-3xl font-light">
+                  {data.pokemon.name}{" "}
+                  <span className="text-[#616161]">#{data.pokemon.number}</span>
+                </h1>
+
+                <ul className="flex gap-2 flex-wrap mt-2 justify-center">
+                  {data.pokemon.types.map((type: string, index: number) => (
+                    <li
+                      key={index}
+                      className={`rounded-xl text-sm font-normal px-3 py-1 ${
+                        typeColors[type] || "bg-gray-200 text-gray-800"
+                      }`}
+                    >
+                      {type}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+
             <div>
               <img
                 src={data.pokemon.image}
@@ -64,8 +78,8 @@ function PokemonDetails({ name }: Props) {
                 className="mb-10 mt-5"
               />
             </div>
-            <div className="flex flex-row gap-4">
-              <p className="text-xl font-normal p-2 bg-yellow-200 rounded-full text-red-900 self-start">
+            <div className="flex flex-row gap-4 w-3/4 justify-center border-b-1 border-gray-300 pb-2 mb-2">
+              <p className="text-xl text-red-900">
                 Evolutions
               </p>
             </div>
@@ -77,7 +91,7 @@ function PokemonDetails({ name }: Props) {
                       <div
                         key={evo.id}
                         onClick={() => handleClick(evo.name)}
-                        className="rounded-xl border-15 border-yellow-100 bg-white p-4 text-center shadow-lg cursor-pointer hover:shadow-lg hover:scale-102 transition-all duration-300 flex flex-col items-center"
+                        className="rounded-xl bg-white p-4 text-center shadow-lg cursor-pointer hover:shadow-xl hover:scale-102 transition-all duration-300 flex flex-col items-center"
                       >
                         <img
                           src={evo.image}
@@ -182,37 +196,42 @@ function PokemonDetails({ name }: Props) {
             <div className="w-full mt-5 bg-white rounded-xl p-5 shadow-md">
               <h3 className="text-black text-xl mb-4">Attacks</h3>
 
-              {/* Fast Attacks */}
               <div className="mb-6 p-5 shadow-md rounded-xl bg-red-200">
                 <h4 className="text-lg mb-2 text-red-800 font-normal">
                   Fast Attacks
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {data.pokemon.attacks.fast.map((attack: {name: string, type: string, damage: number}, index: number) => (
-                    <div
-                      key={index}
-                      className="rounded-xl p-4 shadow-md bg-white"
-                    >
-                      <p className="font-semibold">
-                        Name: <span className="font-normal">{attack.name}</span>
-                      </p>
-                      <p className="font-semibold">
-                        Type:{" "}
-                        <span
-                          className={`px-2 py-1 rounded-full text-sm font-medium ${
-                            typeColors[attack.type] ||
-                            "bg-gray-200 text-gray-800"
-                          }`}
-                        >
-                          {attack.type}
-                        </span>
-                      </p>
-                      <p className="font-semibold">
-                        Damage:{" "}
-                        <span className="font-normal">{attack.damage}</span>
-                      </p>
-                    </div>
-                  ))}
+                  {data.pokemon.attacks.fast.map(
+                    (
+                      attack: { name: string; type: string; damage: number },
+                      index: number
+                    ) => (
+                      <div
+                        key={index}
+                        className="rounded-xl p-4 shadow-md bg-white"
+                      >
+                        <p className="font-semibold">
+                          Name:{" "}
+                          <span className="font-normal">{attack.name}</span>
+                        </p>
+                        <p className="font-semibold">
+                          Type:{" "}
+                          <span
+                            className={`px-2 py-1 rounded-full text-sm font-medium ${
+                              typeColors[attack.type] ||
+                              "bg-gray-200 text-gray-800"
+                            }`}
+                          >
+                            {attack.type}
+                          </span>
+                        </p>
+                        <p className="font-semibold">
+                          Damage:{" "}
+                          <span className="font-normal">{attack.damage}</span>
+                        </p>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
 
@@ -222,31 +241,37 @@ function PokemonDetails({ name }: Props) {
                   Special Attacks
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {data.pokemon.attacks.special.map((attack: {name: string, type: string, damage: number}, index: number) => (
-                    <div
-                      key={index}
-                      className="bg-white rounded-xl p-4 shadow-md"
-                    >
-                      <p className="font-semibold">
-                        Name: <span className="font-normal">{attack.name}</span>
-                      </p>
-                      <p className="font-semibold">
-                        Type:{" "}
-                        <span
-                          className={`px-2 py-1 rounded-full text-sm font-medium ${
-                            typeColors[attack.type] ||
-                            "bg-gray-200 text-gray-800"
-                          }`}
-                        >
-                          {attack.type}
-                        </span>
-                      </p>
-                      <p className="font-semibold">
-                        Damage:{" "}
-                        <span className="font-normal">{attack.damage}</span>
-                      </p>
-                    </div>
-                  ))}
+                  {data.pokemon.attacks.special.map(
+                    (
+                      attack: { name: string; type: string; damage: number },
+                      index: number
+                    ) => (
+                      <div
+                        key={index}
+                        className="bg-white rounded-xl p-4 shadow-md"
+                      >
+                        <p className="font-semibold">
+                          Name:{" "}
+                          <span className="font-normal">{attack.name}</span>
+                        </p>
+                        <p className="font-semibold">
+                          Type:{" "}
+                          <span
+                            className={`px-2 py-1 rounded-full text-sm font-medium ${
+                              typeColors[attack.type] ||
+                              "bg-gray-200 text-gray-800"
+                            }`}
+                          >
+                            {attack.type}
+                          </span>
+                        </p>
+                        <p className="font-semibold">
+                          Damage:{" "}
+                          <span className="font-normal">{attack.damage}</span>
+                        </p>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
