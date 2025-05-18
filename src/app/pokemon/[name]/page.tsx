@@ -1,12 +1,12 @@
 import PokemonDetails from '@/components/PokemonDetails'
 
-type PageProps = {
+type paramProps = {
   params: {
     name: string;
   };
 };
 
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: paramProps) {
   const { name } = params;
     return (
       <div>
