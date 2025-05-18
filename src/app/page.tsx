@@ -8,8 +8,8 @@ const Home = () => {
 
   return (
     <main className="flex flex-col w-full max-w-7xl mx-auto px-5 bg-white shadow-md min-h-screen">
-      <div className="flex flex-col items-center">
-        <p className="text-5xl mt-5">PokeSource</p>
+      <div className="flex justify-center">
+        <p className="text-3xl mt-5 font-semibold md:text-5xl">Pokemon Source</p>
       </div>
       <div>
         <Suspense fallback={<p>Loading Search...</p>}>
