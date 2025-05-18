@@ -81,9 +81,7 @@ function PokemonDetails({ name }: Props) {
               />
             </div>
             <div className="flex flex-row gap-4 w-3/4 justify-center border-b-1 border-gray-300 pb-2 mb-2">
-              <p className="text-xl text-red-900">
-                Evolutions
-              </p>
+              <p className="text-xl text-red-900">Evolutions</p>
             </div>
             <div className="flex-1 flex-col rounded-xl p-5">
               {data.pokemon.evolutions?.length > 0 ? (
@@ -202,7 +200,7 @@ function PokemonDetails({ name }: Props) {
                 <h4 className="text-lg mb-2 text-red-800 font-normal">
                   Fast Attacks
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {data.pokemon.attacks.fast.map(
                     (
                       attack: { name: string; type: string; damage: number },
@@ -210,27 +208,26 @@ function PokemonDetails({ name }: Props) {
                     ) => (
                       <div
                         key={index}
-                        className="rounded-xl p-4 shadow-md bg-white"
+                        className="grid grid-cols-2 rounded-xl p-4 shadow-md bg-white"
                       >
-                        <p className="font-semibold">
-                          Name:{" "}
-                          <span className="font-normal">{attack.name}</span>
-                        </p>
-                        <p className="font-semibold">
-                          Type:{" "}
+                        <div className="w-full flex flex-col">
+                          <span className="text-lg">
+                            {attack.name}
+                          </span>
                           <span
-                            className={`px-2 py-1 rounded-full text-sm font-medium ${
+                            className={`px-1 rounded-full text-sm flex justify-center ${
                               typeColors[attack.type] ||
                               "bg-gray-200 text-gray-800"
                             }`}
                           >
                             {attack.type}
                           </span>
-                        </p>
-                        <p className="font-semibold">
-                          Damage:{" "}
-                          <span className="font-normal">{attack.damage}</span>
-                        </p>
+                        </div>
+                        <div className="flex justify-end items-center">
+                          <span className="text-5xl">
+                            {attack.damage}
+                          </span>
+                        </div>
                       </div>
                     )
                   )}
@@ -242,7 +239,7 @@ function PokemonDetails({ name }: Props) {
                 <h4 className="text-lg mb-2 font-normal text-orange-700">
                   Special Attacks
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {data.pokemon.attacks.special.map(
                     (
                       attack: { name: string; type: string; damage: number },
@@ -250,27 +247,26 @@ function PokemonDetails({ name }: Props) {
                     ) => (
                       <div
                         key={index}
-                        className="bg-white rounded-xl p-4 shadow-md"
+                        className="grid grid-cols-2 rounded-xl p-4 shadow-md bg-white"
                       >
-                        <p className="font-semibold">
-                          Name:{" "}
-                          <span className="font-normal">{attack.name}</span>
-                        </p>
-                        <p className="font-semibold">
-                          Type:{" "}
+                        <div className="w-full flex flex-col">
+                          <span className="text-lg">
+                            {attack.name}
+                          </span>
                           <span
-                            className={`px-2 py-1 rounded-full text-sm font-medium ${
+                            className={`px-1 rounded-full text-sm flex justify-center ${
                               typeColors[attack.type] ||
                               "bg-gray-200 text-gray-800"
                             }`}
                           >
                             {attack.type}
                           </span>
-                        </p>
-                        <p className="font-semibold">
-                          Damage:{" "}
-                          <span className="font-normal">{attack.damage}</span>
-                        </p>
+                        </div>
+                        <div className="flex justify-end items-center">
+                          <span className="text-5xl">
+                            {attack.damage}
+                          </span>
+                        </div>
                       </div>
                     )
                   )}
