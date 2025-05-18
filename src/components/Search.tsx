@@ -16,7 +16,7 @@ function Search({ searchValue, setSearchValue}: SearchProps) {
     if (nameParam) {
       setSearchValue(nameParam);
     }
-  }, [nameParam]);
+  }, [nameParam, setSearchValue]);
 
   return (
     <div className="flex justify-end my-5 p-2">
