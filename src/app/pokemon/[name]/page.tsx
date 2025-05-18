@@ -1,10 +1,10 @@
 import PokemonDetails from '@/components/PokemonDetails'
 
-type props = {
+type Props = {
   params: { name: string };
 }
 
-function Page({ params }: props) {
+function Page({ params }: Props) {
   const { name } = params;
     return (
       <div>
