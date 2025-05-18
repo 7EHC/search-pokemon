@@ -4,8 +4,8 @@ type Props = {
   params: { name: string };
 }
 
-export default function Page({ params }: Props) {
-  const { name } = params;
+export default async function Page({ params }: Props) {
+  const { name } = await params;
     return (
       <div>
         <PokemonDetails name={ name } />
