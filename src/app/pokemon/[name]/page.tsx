@@ -1,7 +1,9 @@
 import PokemonDetails from "@/components/PokemonDetails";
 
-export default function Page({ params }: { params: { name: string } }) {
-  const { name } = params;
+type nParams = Promise<{ name: string }>
+
+export default async function Page({ params }: { params: nParams }) {
+  const { name } = await params;
 
   return (
     <div>
