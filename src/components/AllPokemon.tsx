@@ -4,9 +4,14 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphql/queries";
 import { useRouter } from "next/navigation";
 import { Pokemon } from "../types/pokemon";
+import NotFound from "./NotFound";
 // import Image from "next/image";
 
-const AllPokemon = () => {
+type SearchProps = {
+  searchValue: string;
+};
+
+const AllPokemon = ({ searchValue }: SearchProps) => {
   const router = useRouter();
   const typeColors: Record<string, string> = {
     Grass: "bg-green-200 text-green-900",
@@ -20,20 +25,27 @@ const AllPokemon = () => {
   };
 
   const { data, loading, error } = useQuery(GET_POKEMONS, {
-    variables: { first: 100 },
+    variables: { first: 200 },
   });
+
+  const filteredPokemons = data?.pokemons.filter((pokemon: Pokemon) =>
+    pokemon.name.toLowerCase().includes(searchValue.toLowerCase())
+  );
 
   const handleClick = (name: string) => {
     router.push(`/pokemon/${name}`);
   };
 
   if (loading)
-    return <p className="flex h-screen justify-center items-center">Loading...</p>;
+    return (
+      <p className="flex h-screen justify-center items-center">Loading...</p>
+    );
   if (error) return <p>Error: {error.message}</p>;
+  if (!filteredPokemons || filteredPokemons.length === 0) return <NotFound />;
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-      {data.pokemons.map((pokemon: Pokemon) => (
+      {filteredPokemons.map((pokemon: Pokemon) => (
         <div
           key={pokemon.id}
           onClick={() => handleClick(pokemon.name)}
@@ -47,10 +59,8 @@ const AllPokemon = () => {
             // height={38}
           />
           <div className="mt-3">
-          <p className="text-center text-sm">
-            #{pokemon.number}
-          </p>
-          <p className="text-center font-normal">{pokemon.name}</p>
+            <p className="text-center text-sm">#{pokemon.number}</p>
+            <p className="text-center font-normal">{pokemon.name}</p>
           </div>
           <div className="mt-2">
             <ul className="flex gap-2 justify-center items-center flex-wrap">
