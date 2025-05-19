@@ -5,7 +5,7 @@ import { GET_POKEMONS } from "../graphql/queries";
 import { useRouter } from "next/navigation";
 import { Pokemon } from "../types/pokemon";
 import NotFound from "./NotFound";
-// import Image from "next/image";
+import Loading from "./Loading";
 
 type SearchProps = {
   searchValue: string;
@@ -36,10 +36,7 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
     router.push(`/pokemon/${name}`);
   };
 
-  if (loading)
-    return (
-      <p className="flex h-screen justify-center items-center">Loading...</p>
-    );
+  if (loading) return <Loading />
   if (error) return <p>Error: {error.message}</p>;
   if (!filteredPokemons || filteredPokemons.length === 0) return <NotFound />;
 
@@ -55,8 +52,6 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
             src={pokemon.image}
             alt={pokemon.name}
             className="w-38 h-38 object-contain mx-auto"
-            // width={38}
-            // height={38}
           />
           <div className="mt-3">
             <p className="text-center text-sm">#{pokemon.number}</p>

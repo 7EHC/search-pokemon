@@ -4,7 +4,7 @@ import { GET_POKEMON_BY_NAME } from "../graphql/queries";
 import { useRouter } from "next/navigation";
 import NotFound from "./NotFound";
 import { Pokemon } from "@/types/pokemon";
-// import Image from "next/image";
+import Loading from "./Loading";
 
 type Props = {
   name: string;
@@ -32,10 +32,7 @@ const PokemonDetails = ({ name }: Props) => {
     skip: !name,
   });
 
-  if (loading)
-    return (
-      <p className="flex h-screen justify-center items-center">Loading...</p>
-    );
+  if (loading) return <Loading />
   if (error) return <p>Error: {error.message}</p>;
   if (!data?.pokemon) return <NotFound />;
 

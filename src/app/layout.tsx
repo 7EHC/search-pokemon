@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Pokemon Search ",
   description: "Pokemons search app",
+  icons: {
+    icon: "/favicon.svg",
+  }
 };
 
 export default function RootLayout({
