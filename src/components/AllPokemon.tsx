@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { Pokemon } from "../types/pokemon";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
-// import Image from "next/image";
 
 type SearchProps = {
   searchValue: string;
@@ -52,8 +51,6 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
           <img
             src={pokemon.image}
             alt={pokemon.name}
-            // width={152}
-            // height={152}
             className="w-38 h-38 object-contain mx-auto"
           />
           <div className="mt-3">
