@@ -34,7 +34,9 @@ const PokemonDetails = ({ name }: Props) => {
 
   if (loading)
     return (
-      <p className="flex h-screen justify-center items-center">Loading...</p>
+  <div className="flex items-center justify-center w-full h-screen">
+    <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-black"></div>
+  </div>
     );
   if (error) return <p>Error: {error.message}</p>;
   if (!data?.pokemon) return <NotFound />;
