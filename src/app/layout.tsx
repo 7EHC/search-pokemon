@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Pokemon Search ",
   description: "Pokemons search app",
   icons: {
-    icon: "/pokeball.svg",
+    icon: "/favicon.svg",
   }
 };
 
