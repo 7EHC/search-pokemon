@@ -22,6 +22,14 @@ const PokemonDetails = ({ name }: Props) => {
     Psychic: "bg-pink-200 text-pink-900",
     Ice: "bg-cyan-200 text-cyan-900",
     Fairy: "bg-pink-100 text-pink-800",
+    Dragon: "bg-red-500 text-yellow-200",
+    Flying: "bg-blue-400 text-blue-100",
+    Bug: "bg-lime-200 text-lime-900",
+    Ground: "bg-amber-300 text-amber-900",
+    Fighting: "bg-orange-200 text-orange-600",
+    Rock: "bg-neutral-500 text-neutral-100",
+    Steel: "bg-slate-500 text-slate-100",
+    Ghost: "bg-black text-white",
   };
 
   const handleClick = (name: string) => {
@@ -135,7 +143,7 @@ const PokemonDetails = ({ name }: Props) => {
             </div>
           </div>
           <div className="flex flex-col items-center overflow-y-auto bg-[#f5f5f5] rounded-xl p-5">
-            <div className="grid grid-cols-2 gap-4 rounded-xl p-5 bg-[#30A7D7] w-full shadow-md">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 rounded-xl p-5 bg-[#30A7D7] w-full shadow-md">
               <ul>
                 <li>
                   <p className="detailsHead">Height</p>
