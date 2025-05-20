@@ -4,7 +4,7 @@ export default function Loading() {
       <div role="status" className="flex flex-col items-center justify-center w-full h-screen">
         <svg
           aria-hidden="true"
-          className="w-10 h-10 animate-spin dark:text-gray-200 fill-red-600"
+          className="w-10 h-10 animate-spin dark:text-[#f4c43b] fill-[#312d98]"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ export default function Loading() {
             fill="currentFill"
           />
         </svg>
-        <span>Loading...</span>
+        <span className="font-normal">Loading...</span>
       </div>
     </div>
   );
