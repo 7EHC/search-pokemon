@@ -104,9 +104,9 @@ const PokemonDetails = ({ name }: Props) => {
                           height={120}
                           className="w-30 h-30 mx-auto mb-2"
                         />
-                        <p className="font-normal mb-2">
+                        <p className="font-bold mb-2">
                           {evo.name}{" "}
-                          <span className="text-[#616161]">#{evo.number}</span>
+                          <span className="text-[#616161] font-normal">#{evo.number}</span>
                         </p>
                         <div>
                           <ul className="flex gap-2 justify-start items-center flex-wrap">
@@ -172,7 +172,7 @@ const PokemonDetails = ({ name }: Props) => {
               </ul>
             </div>
             <div className="mt-5 w-full shadow-md rounded-xl p-5 bg-white">
-              <h3 className="text-black text-xl">Resistant</h3> <br />
+              <h3 className="text-black text-xl font-bold">Resistant</h3> <br />
               <ul className="flex gap-2 justify-start items-center flex-wrap">
                 {data.pokemon.resistant.map((resist: string, index: number) => (
                   <li
@@ -185,7 +185,7 @@ const PokemonDetails = ({ name }: Props) => {
               </ul>
             </div>
             <div className="mt-5 shadow-md w-full rounded-xl p-5 bg-white">
-              <h3 className="text-black text-xl">Weaknesses</h3> <br />
+              <h3 className="text-black text-xl font-bold">Weaknesses</h3> <br />
               <ul className="flex gap-2 justify-start items-center flex-wrap">
                 {data.pokemon.weaknesses.map(
                   (weakness: string, index: number) => (
@@ -200,10 +200,10 @@ const PokemonDetails = ({ name }: Props) => {
               </ul>
             </div>
             <div className="w-full mt-5 bg-white rounded-xl p-5 shadow-md">
-              <h3 className="text-black text-xl mb-4">Attacks</h3>
+              <h3 className="text-black text-xl mb-4 font-bold">Attacks</h3>
 
               <div className="mb-6 p-5 shadow-md rounded-xl bg-red-200">
-                <h4 className="text-lg mb-2 text-red-800 font-normal">
+                <h4 className="text-lg mb-2 text-red-800 font-bold">
                   Fast Attacks
                 </h4>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -238,7 +238,7 @@ const PokemonDetails = ({ name }: Props) => {
 
               {/* Special Attacks */}
               <div className="p-5 shadow-md rounded-xl bg-orange-200">
-                <h4 className="text-lg mb-2 font-normal text-orange-700">
+                <h4 className="text-lg mb-2 font-bold text-orange-700">
                   Special Attacks
                 </h4>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
