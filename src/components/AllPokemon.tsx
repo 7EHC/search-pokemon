@@ -41,12 +41,12 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
   if (!filteredPokemons || filteredPokemons.length === 0) return <NotFound />;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
       {filteredPokemons.map((pokemon: Pokemon) => (
         <div
           key={pokemon.id}
           onClick={() => handleClick(pokemon.name)}
-          className="p-4 rounded-xl shadow cursor-pointer active:scale-95 bg-white hover:shadow-lg hover:scale-102 transition-all duration-300"
+          className="p-4 rounded-xl shadow cursor-pointer active:scale-95 bg-white hover:shadow-lg hover:scale-102 transition-all duration-200"
         >
           <img
             src={pokemon.image}

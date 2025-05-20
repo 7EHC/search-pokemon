@@ -39,14 +39,14 @@ const PokemonDetails = ({ name }: Props) => {
   return (
     <div>
       <div className="flex flex-col items-center">
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 bg-white shadow-md w-full max-w-7xl p-5">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 bg-white shadow-md w-full max-w-7xl sm:p-5">
           <div className="flex flex-col items-center rounded-xl p-5">
             <div className="relative w-full mb-4">
               <img
                 src="/icons8-home-48.png"
                 alt="homeIcon"
                 onClick={() => router.push("/")}
-                className="absolute left-0 w-8 h-8 cursor-pointer hover:scale-110 transition-all duration-300"
+                className="absolute left-0 w-8 h-8 cursor-pointer hover:scale-105 active:scale-90 transition-all duration-200"
               />
 
               <div className="flex flex-col items-center">
@@ -80,7 +80,7 @@ const PokemonDetails = ({ name }: Props) => {
             <div className="flex flex-row gap-4 w-3/4 justify-center border-b-1 border-gray-300 pb-2 mb-2">
               <p className="text-xl text-red-900">Evolutions</p>
             </div>
-            <div className="flex-1 flex-col rounded-xl p-5">
+            <div className="flex flex-col rounded-xl">
               {data.pokemon.evolutions?.length > 0 ? (
                 <>
                   <div className="flex gap-4 flex-row md:flex-wrap justify-center">
@@ -88,7 +88,7 @@ const PokemonDetails = ({ name }: Props) => {
                       <div
                         key={evo.id}
                         onClick={() => handleClick(evo.name)}
-                        className="rounded-xl bg-white p-4 text-center shadow-lg cursor-pointer hover:shadow-xl hover:scale-102 transition-all duration-300 flex flex-col items-center"
+                        className="rounded-xl bg-white p-3 sm:p-4 text-center shadow-lg cursor-pointer hover:shadow-xl active:scale-95 hover:scale-102 transition-all duration-200 flex flex-col items-center"
                       >
                         <img
                           src={evo.image}
