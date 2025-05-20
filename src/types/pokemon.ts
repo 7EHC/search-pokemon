@@ -12,7 +12,7 @@ export interface Pokemon {
   maxCP: number;
   maxHP: number;
   image: string;
-  attacks?: {
+  attacks: {
     fast: Attack[];
     special: Attack[];
   };
