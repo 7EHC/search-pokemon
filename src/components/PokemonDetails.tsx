@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import NotFound from "./NotFound";
 import { Pokemon } from "@/types/pokemon";
 import Loading from "./Loading";
+import Image from "next/image";
 
 type Props = {
   name: string;
@@ -32,7 +33,7 @@ const PokemonDetails = ({ name }: Props) => {
     skip: !name,
   });
 
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error.message}</p>;
   if (!data?.pokemon) return <NotFound />;
 
@@ -42,7 +43,9 @@ const PokemonDetails = ({ name }: Props) => {
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 bg-white shadow-md w-full max-w-7xl sm:p-5">
           <div className="flex flex-col items-center rounded-xl p-5">
             <div className="relative w-full mb-4">
-              <img
+              <Image
+                width={32}
+                height={32}
                 src="/icons8-home-48.png"
                 alt="homeIcon"
                 onClick={() => router.push("/")}
@@ -52,7 +55,9 @@ const PokemonDetails = ({ name }: Props) => {
               <div className="flex flex-col items-center">
                 <h1 className="text-3xl font-semibold">
                   {data.pokemon.name}{" "}
-                  <span className="text-[#616161] font-light">#{data.pokemon.number}</span>
+                  <span className="text-[#616161] font-light">
+                    #{data.pokemon.number}
+                  </span>
                 </h1>
 
                 <ul className="flex gap-2 flex-wrap mt-2 justify-center">
@@ -71,7 +76,9 @@ const PokemonDetails = ({ name }: Props) => {
             </div>
 
             <div>
-              <img
+              <Image
+                width={200}
+                height={200}
                 src={data.pokemon.image}
                 alt={data.pokemon.name}
                 className="mb-10 mt-5"
@@ -90,9 +97,11 @@ const PokemonDetails = ({ name }: Props) => {
                         onClick={() => handleClick(evo.name)}
                         className="rounded-xl bg-white p-3 sm:p-4 text-center shadow-lg cursor-pointer hover:shadow-xl active:scale-95 hover:scale-102 transition-all duration-200 flex flex-col items-center"
                       >
-                        <img
+                        <Image
                           src={evo.image}
                           alt={evo.name}
+                          width={120}
+                          height={120}
                           className="w-30 h-30 mx-auto mb-2"
                         />
                         <p className="font-normal mb-2">
@@ -208,9 +217,7 @@ const PokemonDetails = ({ name }: Props) => {
                         className="grid grid-cols-2 rounded-xl p-4 shadow-md bg-white"
                       >
                         <div className="w-full flex flex-col">
-                          <span className="text-lg">
-                            {attack.name}
-                          </span>
+                          <span className="text-lg">{attack.name}</span>
                           <span
                             className={`px-1 rounded-full text-sm flex justify-center ${
                               typeColors[attack.type] ||
@@ -221,9 +228,7 @@ const PokemonDetails = ({ name }: Props) => {
                           </span>
                         </div>
                         <div className="flex justify-end items-center">
-                          <span className="text-5xl">
-                            {attack.damage}
-                          </span>
+                          <span className="text-5xl">{attack.damage}</span>
                         </div>
                       </div>
                     )
@@ -247,9 +252,7 @@ const PokemonDetails = ({ name }: Props) => {
                         className="grid grid-cols-2 rounded-xl p-4 shadow-md bg-white"
                       >
                         <div className="w-full flex flex-col">
-                          <span className="text-lg">
-                            {attack.name}
-                          </span>
+                          <span className="text-lg">{attack.name}</span>
                           <span
                             className={`px-1 rounded-full text-sm flex justify-center ${
                               typeColors[attack.type] ||
@@ -260,9 +263,7 @@ const PokemonDetails = ({ name }: Props) => {
                           </span>
                         </div>
                         <div className="flex justify-end items-center">
-                          <span className="text-5xl">
-                            {attack.damage}
-                          </span>
+                          <span className="text-5xl">{attack.damage}</span>
                         </div>
                       </div>
                     )
@@ -277,6 +278,6 @@ const PokemonDetails = ({ name }: Props) => {
       </div>
     </div>
   );
-}
+};
 
 export default PokemonDetails;

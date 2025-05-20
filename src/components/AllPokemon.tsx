@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Pokemon } from "../types/pokemon";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
+import Image from "next/image";
 
 type SearchProps = {
   searchValue: string;
@@ -48,9 +49,11 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
           onClick={() => handleClick(pokemon.name)}
           className="p-4 rounded-xl shadow cursor-pointer active:scale-95 bg-white hover:shadow-lg hover:scale-102 transition-all duration-200"
         >
-          <img
+          <Image
             src={pokemon.image}
             alt={pokemon.name}
+            width={152}
+            height={152}
             className="w-38 h-38 object-contain mx-auto"
           />
           <div className="mt-3">
