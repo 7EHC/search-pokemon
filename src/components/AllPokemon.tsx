@@ -23,6 +23,14 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
     Psychic: "bg-pink-200 text-pink-900",
     Ice: "bg-cyan-200 text-cyan-900",
     Fairy: "bg-pink-100 text-pink-800",
+    Dragon: "bg-red-500 text-yellow-200",
+    Flying: "bg-blue-400 text-blue-100",
+    Bug: "bg-lime-200 text-lime-900",
+    Ground: "bg-amber-300 text-amber-900",
+    Fighting: "bg-orange-200 text-orange-600",
+    Rock: "bg-neutral-500 text-neutral-100",
+    Steel: "bg-slate-500 text-slate-100",
+    Ghost: "bg-black text-white",
   };
 
   const { data, loading, error } = useQuery(GET_POKEMONS, {
