@@ -14,10 +14,6 @@ const NotFound = () => {
       <p className="text-gray-400 text-center break-words">
         Try another Pokemon name.
       </p>
-
-      {/* <button onClick={() => handleClick()} className="mt-4 cursor-pointer bg-white shadow-md p-2 rounded-xl hover:shadow-lg hover:bg-gray-50 transition-all duration-300 text-black">
-        Try another name
-        </button> */}
     </div>
   );
 };
