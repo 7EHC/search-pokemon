@@ -28,6 +28,7 @@ body {
 body {
   background-color: #f5f5f5;
   font-weight: lighter;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .detailsHead {
@@ -37,5 +38,5 @@ body {
 }
 .detailsText {
   font-size: 20px;
-  font-weight: normal
+  font-weight: bold
 }

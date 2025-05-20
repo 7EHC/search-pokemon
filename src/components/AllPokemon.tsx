@@ -58,7 +58,7 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
           />
           <div className="mt-3">
             <p className="text-center text-sm">#{pokemon.number}</p>
-            <p className="text-center font-normal">{pokemon.name}</p>
+            <p className="text-center font-bold">{pokemon.name}</p>
           </div>
           <div className="mt-2">
             <ul className="flex gap-2 justify-center items-center flex-wrap">
