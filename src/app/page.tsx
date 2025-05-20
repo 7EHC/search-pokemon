@@ -7,11 +7,9 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <main className="flex flex-col w-full max-w-7xl mx-auto px-5 bg-white shadow-md min-h-screen">
+    <main className="flex flex-col w-full max-w-7xl mx-auto px-5 py-5 bg-white shadow-md min-h-screen">
       <div className="flex justify-center">
-        <p className="text-3xl mt-5 font-semibold md:text-5xl">
-          Pokemon Source
-        </p>
+        <img src="/pokedex.png" alt="pokedex" className="md:w-60 w-50"/>
       </div>
       <div>
         <Suspense>

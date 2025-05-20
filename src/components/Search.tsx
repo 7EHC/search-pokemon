@@ -19,12 +19,12 @@ const Search = ({ searchValue, setSearchValue}: SearchProps) => {
   }, [nameParam, setSearchValue]);
 
   return (
-    <div className="flex justify-center md:justify-end my-5 p-2">
+    <div className="flex justify-center md:justify-end my-5">
       <div className="relative lg:w-1/4">
       <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
         <input
           type="text"
-          className="w-full rounded-xl p-2 pl-10 cursor-text shadow-md hover:shadow-lg transition-all duration-300"
+          className="w-full rounded-xl p-2 pl-10 cursor-text shadow-md hover:shadow-lg transition-all duration-300 bg-white focus:outline-0 focus:ring-1 focus:ring-[#312d98]"
           value={searchValue}
           placeholder="Search Pokemon name"
           onChange={(e) => setSearchValue(e.target.value.trim())}
