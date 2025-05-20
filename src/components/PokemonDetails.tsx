@@ -50,9 +50,9 @@ const PokemonDetails = ({ name }: Props) => {
               />
 
               <div className="flex flex-col items-center">
-                <h1 className="text-3xl font-light">
+                <h1 className="text-3xl font-semibold">
                   {data.pokemon.name}{" "}
-                  <span className="text-[#616161]">#{data.pokemon.number}</span>
+                  <span className="text-[#616161] font-light">#{data.pokemon.number}</span>
                 </h1>
 
                 <ul className="flex gap-2 flex-wrap mt-2 justify-center">
@@ -78,7 +78,7 @@ const PokemonDetails = ({ name }: Props) => {
               />
             </div>
             <div className="flex flex-row gap-4 w-3/4 justify-center border-b-1 border-gray-300 pb-2 mb-2">
-              <p className="text-xl text-red-900">Evolutions</p>
+              <p className="text-xl font-semibold">Evolutions</p>
             </div>
             <div className="flex flex-col rounded-xl">
               {data.pokemon.evolutions?.length > 0 ? (
