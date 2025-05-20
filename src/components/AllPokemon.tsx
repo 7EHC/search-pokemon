@@ -46,7 +46,7 @@ const AllPokemon = ({ searchValue }: SearchProps) => {
         <div
           key={pokemon.id}
           onClick={() => handleClick(pokemon.name)}
-          className="p-4 rounded-xl shadow cursor-pointer bg-white hover:shadow-lg hover:scale-102 transition-all duration-300"
+          className="p-4 rounded-xl shadow cursor-pointer active:scale-95 bg-white hover:shadow-lg hover:scale-102 transition-all duration-300"
         >
           <img
             src={pokemon.image}
