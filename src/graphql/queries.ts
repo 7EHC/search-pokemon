@@ -50,13 +50,7 @@ export const GET_POKEMON_BY_NAME = gql`
         id
         number
         name
-        classification
         types
-        resistant
-        weaknesses
-        fleeRate
-        maxCP
-        maxHP
         image
       }
     }
